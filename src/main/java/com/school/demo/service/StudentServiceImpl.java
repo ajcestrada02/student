@@ -18,4 +18,20 @@ public class StudentServiceImpl implements StudentService {
 		return studentRepository.findAll();
 	}
 
+	public void createStudent(Student student) {
+		studentRepository.save(student);
+	}
+
+	public Student deleteStudent(Integer studentId) {
+		Student stud = studentRepository.findById(studentId).get();
+		studentRepository.deleteById(studentId);
+		
+		return stud;
+	}
+
+	
+	public List<Student> getStudentByAge(Integer age) {
+		return studentRepository.findByAge(age);
+	}
+
 }
